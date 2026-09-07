@@ -3,70 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo/Editar Producto - Level-Up Admin</title>
-
+    <title>Nuevo/Editar Producto - Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
     <div class="container-fluid">
         <div class="row min-vh-100">
-
-            <!-- MENÚ LATERAL (Sidebar) -->
             <nav class="col-md-2 bg-dark text-white p-3 d-flex flex-column">
                 <h4 class="mb-4 text-center">Level-Up Admin</h4>
                 <ul class="nav flex-column mb-auto">
-                    <li class="nav-item mb-2">
-                        <a href="home_admin.html" class="nav-link text-white">🏠 Dashboard</a>
-                    </li>
-                    <li class="nav-item mb-2">
-                        <a href="listado_productos.html" class="nav-link text-white active fw-bold">📦 Productos</a>
-                    </li>
-                    <li class="nav-item mb-2">
-                        <a href="listado_usuarios.html" class="nav-link text-white">👥 Usuarios</a>
-                    </li>
+                    <li class="nav-item mb-2"><a href="home_admin.html" class="nav-link text-white">Dashboard</a></li>
+                    <li class="nav-item mb-2"><a href="listado_productos.html" class="nav-link text-white active fw-bold">Productos</a></li>
+                    <li class="nav-item mb-2"><a href="listado_usuarios.html" class="nav-link text-white">Usuarios</a></li>
                 </ul>
-                <button id="btnCerrarSesion" class="btn btn-outline-danger mt-4">Cerrar Sesión</button>
+                <a href="index.html" id="btnCerrarSesion" class="btn btn-outline-danger mt-4">Cerrar sesión</a>
             </nav>
 
-            <!-- CONTENIDO PRINCIPAL -->
             <main class="col-md-10 p-4 bg-light">
-                
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h1 id="tituloFormProducto">Nuevo Producto</h1>
-                    <a href="listado_productos.html" class="btn btn-secondary">Volver al Inventario</a>
+                    <h1>NUEVO PRODUCTO</h1>
+                    <a href="listado_productos.html" class="btn btn-secondary">Volver</a>
                 </div>
 
                 <div class="card shadow-sm">
                     <div class="card-body">
-                        
-                        <!-- FORMULARIO DE PRODUCTO -->
                         <form id="formProducto" novalidate>
-                            
                             <div class="row">
-                                <!-- CÓDIGO PRODUCTO -->
                                 <div class="col-md-4 mb-3">
-                                    <label for="codigoProd" class="form-label">Código del Producto</label>
-                                    <!-- COMENTARIO JS: Regla de negocio -> Min: 0, Solo números enteros. Valídalo en tu JS. -->
-                                    <input type="number" id="codigoProd" class="form-control" min="0" placeholder="Ej: 101">
-                                    <div class="invalid-feedback" id="errorCodigoProd">Ingrese un código numérico mayor a 0.</div>
+                                    <label class="form-label">ID Producto</label>
+                                    <input type="number" id="idProducto" class="form-control" min="0" step="1" required>
+                                    <div class="invalid-feedback">Debe ser un número entero mayor o igual a 0.</div>
                                 </div>
-
-                                <!-- NOMBRE PRODUCTO -->
                                 <div class="col-md-8 mb-3">
-                                    <label for="nombreProd" class="form-label">Nombre del Producto</label>
-                                    <input type="text" id="nombreProd" class="form-control" maxlength="100">
-                                    <!-- COMENTARIO JS: Validar que no esté vacío -->
-                                    <div class="invalid-feedback" id="errorNombreProd">El nombre es requerido.</div>
+                                    <label class="form-label">Nombre del Producto</label>
+                                    <input type="text" id="nombreProducto" class="form-control" required>
                                 </div>
-
-                                <!-- CATEGORÍA -->
                                 <div class="col-md-6 mb-3">
-                                    <label for="categoriaProd" class="form-label">Categoría</label>
-                                    <select id="categoriaProd" class="form-select">
-                                        <option value="" selected disabled>Seleccione una categoría...</option>
-                                        <!-- Categorías solicitadas en el documento base -->
+                                    <label class="form-label">Categoría</label>
+                                    <select id="categoriaProducto" class="form-select" required>
+                                        <option value="">Seleccione...</option>
                                         <option value="Juegos de mesa">Juegos de mesa</option>
                                         <option value="Accesorios">Accesorios</option>
                                         <option value="Consolas">Consolas</option>
@@ -74,52 +50,28 @@
                                         <option value="Sillas gamers">Sillas gamers</option>
                                         <option value="Mouse">Mouse</option>
                                         <option value="Mousepad">Mousepad</option>
-                                        <option value="Servicio tecnico">Servicio técnico</option>
+                                        <option value="Poleras personalizadas">Poleras personalizadas</option>
+                                        <option value="Polerones gamers">Polerones gamers personalizados</option>
+                                        <option value="Servicio técnico">Servicio técnico</option>
                                     </select>
-                                    <!-- COMENTARIO JS: Regla de negocio -> Requerido. -->
-                                    <div class="invalid-feedback" id="errorCategoriaProd">Debe seleccionar una categoría.</div>
                                 </div>
-
-                                <!-- PRECIO -->
                                 <div class="col-md-6 mb-3">
-                                    <label for="precioProd" class="form-label">Precio de Venta ($)</label>
-                                    <input type="number" id="precioProd" class="form-control" min="1">
-                                    <!-- COMENTARIO JS: Validar que sea mayor a 0 -->
-                                    <div class="invalid-feedback" id="errorPrecioProd">Ingrese un precio válido.</div>
+                                    <label class="form-label">Precio ($)</label>
+                                    <input type="number" id="precioProducto" class="form-control" min="0" step="1" required>
                                 </div>
-
-                                <!-- IMAGEN (Opcional según requerimiento) -->
                                 <div class="col-md-12 mb-3">
-                                    <label for="imagenProd" class="form-label">Subir Imagen (Opcional)</label>
-                                    <input type="file" id="imagenProd" class="form-control" accept="image/png, image/jpeg">
-                                    <div class="form-text">Formatos permitidos: JPG, PNG.</div>
+                                    <label class="form-label">Imagen (Opcional)</label>
+                                    <input type="file" id="imagenProducto" class="form-control" accept="image/*">
                                 </div>
-
-                                <!-- DESCRIPCIÓN -->
-                                <div class="col-md-12 mb-3">
-                                    <label for="descProd" class="form-label">Descripción Detallada</label>
-                                    <textarea id="descProd" class="form-control" rows="3"></textarea>
-                                    <!-- COMENTARIO JS: Validar si deseas que sea obligatorio -->
-                                    <div class="invalid-feedback" id="errorDescProd">Ingrese una descripción.</div>
-                                </div>
-
                             </div>
-
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
-                                <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
-                                <!-- COMENTARIO JS: Al pasar todas las validaciones JS, simular guardado y redirigir -->
-                                <button type="submit" class="btn btn-primary">Guardar Producto</button>
-                            </div>
-
+                            <button type="submit" class="btn btn-primary mt-3">GUARDAR PRODUCTO</button>
                         </form>
-
                     </div>
                 </div>
             </main>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/funciones.js"></script>
+    <script src="js/funciones.js"></script>
 </body>
 </html>
