@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level-Up Gamer | Detalle del Producto</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/img/LEVEL-UP-GAMER.jpg" alt="Level-Up Gamer" height="40">
+                LEVEL-UP <span class="text-accent">GAMER</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="productos.html">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nosotros.html">Sobre nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-3">
+                    <a href="carrito.html" class="text-white position-relative">
+                        <i class="bi bi-cart3 fs-5"></i>
+                        <span class="badge rounded-pill bg-danger position-absolute top-0 start-100 translate-middle" id="cart-count">0</span>
+                    </a>
+                    <a href="login.html" class="btn btn-outline-light btn-sm">Iniciar Sesión</a>
+                    <a href="registro.html" class="btn btn-accent btn-sm">Registrarse</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html" class="text-accent">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="productos.html" class="text-accent">Productos</a></li>
+                <li class="breadcrumb-item active text-secondary" aria-current="page" id="breadcrumb-producto">PC Gamer ASUS ROG Strix</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="container my-4" id="detalle-producto">
+
+        <div class="row g-5">
+
+
+            <div class="col-md-6">
+                <img src="assets/img/PC-GAMER-ASUS-ROG-Strix.jpg" alt="PC Gamer ASUS ROG Strix" class="img-fluid rounded producto-imagen-grande" id="producto-imagen">
+            </div>
+
+
+            <div class="col-md-6">
+                <p class="text-secondary mb-1" id="producto-categoria">Computadores Gamers</p>
+                <h1 class="h2" id="producto-nombre">PC Gamer ASUS ROG Strix</h1>
+
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <span class="text-warning">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="text-secondary">4.5 (23 reseñas)</span>
+                </div>
+
+                <p class="price fs-2" id="producto-precio">$1.299.990 CLP</p>
+
+                <p id="producto-descripcion">
+                    Un potente equipo diseñado para los gamers más exigentes, equipado con los
+                    últimos componentes para ofrecer un rendimiento excepcional en cualquier juego.
+                </p>
+
+                <ul class="list-unstyled text-secondary mb-4">
+                    <li><strong>Código:</strong> <span id="producto-codigo">CG001</span></li>
+                    <li><strong>Fabricante:</strong> <span id="producto-fabricante">ASUS</span></li>
+                    <li><strong>Distribuidor:</strong> Level-Up Gamer Chile</li>
+                    <li><strong>Disponibilidad:</strong> <span class="text-success">En stock</span></li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-3 mb-4">
+                    <label for="cantidad" class="mb-0">Cantidad:</label>
+                    <input type="number" id="cantidad" class="form-control" style="width: 80px;" value="1" min="1">
+                </div>
+
+                <div class="d-flex gap-3">
+                    <button class="btn btn-accent btn-lg flex-grow-1" id="btn-agregar-carrito">
+                        <i class="bi bi-cart-plus"></i> Agregar al Carrito
+                    </button>
+                    <button class="btn btn-outline-light btn-lg" id="btn-compartir">
+                        <i class="bi bi-share"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="row mt-5">
+            <div class="col-12">
+                <ul class="nav nav-tabs" id="tabsProducto" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-descripcion" type="button">Descripción</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-origen" type="button">Origen del Producto</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-resenas" type="button">Reseñas (23)</button>
+                    </li>
+                </ul>
+
+                <div class="tab-content p-4 tab-box">
+
+                    <div class="tab-pane fade show active" id="tab-descripcion">
+                        <p>
+                            Un potente equipo diseñado para los gamers más exigentes, equipado con los
+                            últimos componentes para ofrecer un rendimiento excepcional en cualquier juego.
+                            Ideal para streaming, edición de video y los títulos más pesados del mercado.
+                        </p>
+                    </div>
+
+                    <div class="tab-pane fade" id="tab-origen">
+                        <p><strong>Fabricante:</strong> ASUS (Taiwán)</p>
+                        <p><strong>Distribuidor autorizado:</strong> Level-Up Gamer Chile</p>
+                        <p>Todos nuestros productos cuentan con garantía oficial del fabricante y son 100% originales, para asegurar su autenticidad y calidad.</p>
+                    </div>
+
+                    <div class="tab-pane fade" id="tab-resenas">
+
+
+
+                        <div class="resena mb-3 pb-3">
+                            <div class="d-flex justify-content-between">
+                                <strong>Gonzalo P.</strong>
+                                <span class="text-warning">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </span>
+                            </div>
+                            <p class="text-secondary mb-0">Excelente rendimiento, llegó bien embalado y funciona perfecto para mis juegos favoritos.</p>
+                        </div>
+
+                        <div class="resena mb-3 pb-3">
+                            <div class="d-flex justify-content-between">
+                                <strong>Camila R.</strong>
+                                <span class="text-warning">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                                </span>
+                            </div>
+                            <p class="text-secondary mb-0">Muy buen equipo, aunque esperaba que trajera más accesorios incluidos.</p>
+                        </div>
+
+
+                        <hr>
+                        <h5 class="mt-4 mb-3">Deja tu reseña</h5>
+                        <form id="form-resena">
+                            <div class="mb-3">
+                                <label class="form-label">Tu calificación</label><br>
+                                <select class="form-select" style="width: 150px;" id="resena-estrellas">
+                                    <option value="5">5 estrellas</option>
+                                    <option value="4">4 estrellas</option>
+                                    <option value="3">3 estrellas</option>
+                                    <option value="2">2 estrellas</option>
+                                    <option value="1">1 estrella</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="resena-comentario" class="form-label">Comentario</label>
+                                <textarea class="form-control" id="resena-comentario" rows="3" placeholder="Cuéntanos qué te pareció el producto..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-accent">Publicar Reseña</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer py-4">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <p class="mb-2 mb-md-0">&copy; 2026 Level-Up Gamer. Todos los derechos reservados.</p>
+            <div class="d-flex gap-3">
+                <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-white"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-white"><i class="bi bi-tiktok"></i></a>
+                <a href="https://wa.me/56900000000" class="text-white"><i class="bi bi-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+</body>
+</html>
