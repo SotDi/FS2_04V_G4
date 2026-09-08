@@ -3,167 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo / Editar Usuario - Level-Up Admin</title>
-
-    <!-- LLAMADA A BOOTSTRAP CSS -->
+    <title>Nuevo/Editar Usuario - Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- LLAMADA A TU CSS PERSONALIZADO -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- COMENTARIO JS (UNIÓN CON LOGIN Y ROLES):
-        Al cargar la página, JS debe verificar:
-        1. ¿Hay un usuario en localStorage? Si no, redirigir a login.html.
-        2. ¿El rol de ese usuario es "Administrador"? Si es "Cliente" o "Vendedor", mostrar un alert de "Acceso Denegado" y redirigir al index.html de la tienda.
-    -->
-
     <div class="container-fluid">
         <div class="row min-vh-100">
-
-            <!-- MENÚ LATERAL (Sidebar) -->
             <nav class="col-md-2 bg-dark text-white p-3 d-flex flex-column">
                 <h4 class="mb-4 text-center">Level-Up Admin</h4>
                 <ul class="nav flex-column mb-auto">
-                    <li class="nav-item mb-2">
-                        <a href="home_admin.html" class="nav-link text-white">🏠 Dashboard</a>
-                    </li>
-                    <li class="nav-item mb-2">
-                        <a href="listado_productos.html" class="nav-link text-white">📦 Productos</a>
-                    </li>
-                    <li class="nav-item mb-2">
-                        <a href="listado_usuarios.html" class="nav-link text-white active fw-bold">👥 Usuarios</a>
-                    </li>
+                    <li class="nav-item mb-2"><a href="home_admin.html" class="nav-link text-white">Dashboard</a></li>
+                    <li class="nav-item mb-2"><a href="listado_productos.html" class="nav-link text-white">Productos</a></li>
+                    <li class="nav-item mb-2"><a href="listado_usuarios.html" class="nav-link text-white active fw-bold">Usuarios</a></li>
                 </ul>
-                <button id="btnCerrarSesion" class="btn btn-outline-danger mt-4">Cerrar Sesión</button>
+                <a href="index.html" id="btnCerrarSesion" class="btn btn-outline-danger mt-4">Cerrar sesión</a>
             </nav>
 
-            <!-- CONTENIDO PRINCIPAL -->
             <main class="col-md-10 p-4 bg-light">
-                
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <!-- COMENTARIO JS: Si estás editando, mediante JS puedes cambiar este título a "Editar Usuario" -->
-                    <h1 id="tituloFormulario">Nuevo Usuario</h1>
-                    <a href="listado_usuarios.html" class="btn btn-secondary">Volver al Listado</a>
+                    <h1>NUEVO USUARIO</h1>
+                    <a href="listado_usuarios.html" class="btn btn-secondary">Volver</a>
                 </div>
 
                 <div class="card shadow-sm">
                     <div class="card-body">
-                        
-                        <!-- FORMULARIO DE USUARIO (Con novalidate para que JS haga el trabajo y no el navegador) -->
-                        <!-- COMENTARIO JS: Agregar un eventListener 'submit' a este form para prevenir el envío por defecto (e.preventDefault()) y ejecutar tus validaciones -->
                         <form id="formUsuario" novalidate>
-                            
                             <div class="row">
-                                <!-- RUN -->
                                 <div class="col-md-6 mb-3">
-                                    <label for="run" class="form-label">RUN (Sin puntos ni guion)</label>
-                                    <input type="text" id="run" class="form-control" placeholder="Ej: 19011022K" maxlength="9">
-                                    <!-- COMENTARIO JS: Validar que sea requerido, min 7, max 9 caracteres, y aplicar algoritmo de módulo 11 si el profe lo exige -->
-                                    <div class="invalid-feedback" id="errorRun"></div>
+                                    <label class="form-label">RUN (Sin puntos ni guion)</label>
+                                    <input type="text" id="runUsuario" class="form-control" minlength="7" maxlength="9" required>
+                                    <div class="invalid-feedback">RUN inválido (7 a 9 caracteres).</div>
                                 </div>
-
-                                <!-- NOMBRE -->
                                 <div class="col-md-6 mb-3">
-                                    <label for="nombres" class="form-label">Nombres</label>
-                                    <input type="text" id="nombres" class="form-control" maxlength="50">
-                                    <!-- COMENTARIO JS: Validar requerido y máximo 50 caracteres -->
-                                    <div class="invalid-feedback" id="errorNombres"></div>
+                                    <label class="form-label">Nombre</label>
+                                    <input type="text" id="nombreUsuario" class="form-control" maxlength="50" required>
                                 </div>
-
-                                <!-- APELLIDOS -->
                                 <div class="col-md-6 mb-3">
-                                    <label for="apellidos" class="form-label">Apellidos</label>
-                                    <input type="text" id="apellidos" class="form-control" maxlength="100">
-                                    <!-- COMENTARIO JS: Validar requerido y máximo 100 caracteres -->
-                                    <div class="invalid-feedback" id="errorApellidos"></div>
+                                    <label class="form-label">Apellidos</label>
+                                    <input type="text" id="apellidoUsuario" class="form-control" maxlength="100" required>
                                 </div>
-
-                                <!-- CORREO -->
                                 <div class="col-md-6 mb-3">
-                                    <label for="correo" class="form-label">Correo Electrónico</label>
-                                    <input type="email" id="correo" class="form-control" maxlength="100">
-                                    <!-- COMENTARIO JS: Validar requerido y uso estricto de dominios: @duoc.cl, @profesor.duoc.cl o @gmail.com -->
-                                    <div class="invalid-feedback" id="errorCorreo"></div>
+                                    <label class="form-label">Correo</label>
+                                    <input type="email" id="correoUsuario" class="form-control" maxlength="100" required>
+                                    <div class="invalid-feedback">Dominio no permitido.</div>
                                 </div>
-
-                                <!-- CONTRASEÑA -->
                                 <div class="col-md-6 mb-3">
-                                    <label for="contrasena" class="form-label">Contraseña</label>
-                                    <input type="password" id="contrasena" class="form-control">
-                                    <!-- COMENTARIO JS: Validar que cumpla longitud (ej. 4 a 10 caracteres) -->
-                                    <div class="invalid-feedback" id="errorContrasena"></div>
-                                </div>
-
-                                <!-- FECHA DE NACIMIENTO -->
-                                <div class="col-md-6 mb-3">
-                                    <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento (Opcional)</label>
-                                    <input type="date" id="fechaNacimiento" class="form-control">
-                                </div>
-
-                                <!-- TIPO DE USUARIO (ROL) -->
-                                <div class="col-md-6 mb-3">
-                                    <label for="tipoUsuario" class="form-label">Perfil de Usuario</label>
-                                    <select id="tipoUsuario" class="form-select">
-                                        <option value="" selected disabled>Seleccione un perfil...</option>
+                                    <label class="form-label">Tipo de Usuario</label>
+                                    <select id="tipoUsuario" class="form-select" required>
+                                        <option value="">Seleccione...</option>
                                         <option value="Administrador">Administrador</option>
                                         <option value="Cliente">Cliente</option>
                                         <option value="Vendedor">Vendedor</option>
                                     </select>
-                                    <!-- COMENTARIO JS: Validar requerido -->
-                                    <div class="invalid-feedback" id="errorTipoUsuario"></div>
                                 </div>
-
-                                <!-- REGIÓN -->
                                 <div class="col-md-6 mb-3">
-                                    <label for="region" class="form-label">Región</label>
-                                    <select id="region" class="form-select">
-                                        <option value="" selected disabled>Seleccione una región...</option>
-                                        <!-- COMENTARIO JS: Llenar estas options dinámicamente desde un arreglo JS -->
-                                    </select>
-                                    <div class="invalid-feedback" id="errorRegion"></div>
+                                    <label class="form-label">Fecha Nacimiento (Opcional)</label>
+                                    <input type="date" id="fechaNacimiento" class="form-control">
                                 </div>
-
-                                <!-- COMUNA -->
                                 <div class="col-md-6 mb-3">
-                                    <label for="comuna" class="form-label">Comuna</label>
-                                    <select id="comuna" class="form-select" disabled>
-                                        <option value="" selected disabled>Seleccione primero una región...</option>
-                                        <!-- COMENTARIO JS: Al evento 'change' del select de Región, debes habilitar este select y cargar las comunas correspondientes -->
+                                    <label class="form-label">Región</label>
+                                    <select id="regionUsuario" class="form-select" required>
+                                        <option value="">Seleccione región...</option>
+                                        <option value="RM">Región Metropolitana</option>
                                     </select>
-                                    <div class="invalid-feedback" id="errorComuna"></div>
                                 </div>
-
-                                <!-- DIRECCIÓN -->
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Comuna</label>
+                                    <select id="comunaUsuario" class="form-select" required disabled>
+                                        <option value="">Seleccione comuna...</option>
+                                    </select>
+                                </div>
                                 <div class="col-md-12 mb-3">
-                                    <label for="direccion" class="form-label">Dirección Exacta</label>
-                                    <textarea id="direccion" class="form-control" rows="2" maxlength="300"></textarea>
-                                    <!-- COMENTARIO JS: Validar requerido y máximo 300 caracteres -->
-                                    <div class="invalid-feedback" id="errorDireccion"></div>
+                                    <label class="form-label">Dirección</label>
+                                    <textarea id="direccionUsuario" class="form-control" maxlength="300" required></textarea>
                                 </div>
-
                             </div>
-
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
-                                <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
-                                <!-- COMENTARIO JS (SIMULAR GUARDADO): Si todas las validaciones pasan, mostrar alert("Usuario guardado con éxito") y luego hacer un window.location.href = "listado_usuarios.html"; -->
-                                <button type="submit" class="btn btn-primary">Guardar Usuario</button>
-                            </div>
-
+                            <button type="submit" class="btn btn-primary mt-3">REGISTRAR</button>
                         </form>
-
                     </div>
                 </div>
             </main>
         </div>
     </div>
-
-    <!-- LLAMADA A BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- LLAMADA A TU ARCHIVO JS EXTERNO -->
-    <script src="assets/js/funciones.js"></script>
-
+    <script src="js/funciones.js"></script>
 </body>
 </html>
